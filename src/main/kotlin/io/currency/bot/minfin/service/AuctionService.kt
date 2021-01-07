@@ -11,7 +11,7 @@ class AuctionService(
         private val currency: MinfinAuctionParser,
         private val repository: AuctionRepository,
         private val rateRepository: RateRepository
-        ) {
+) {
 
     fun getRateDelta(): Double {
         return getCurrentAverageRate().avg - (getPreviousAverageRate()?.avg ?: 0.0)
@@ -35,7 +35,7 @@ class AuctionService(
 
     @Transactional
     fun updateRate(rateC: Rate, rateL: Rate): Rate {
-        rateRepository.delete(rateL)
+        rateRepository.findById(rateL.id).map { rateRepository::delete }
         return rateRepository.save(rateC)
     }
 }

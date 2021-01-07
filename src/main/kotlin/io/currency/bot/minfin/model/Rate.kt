@@ -13,5 +13,5 @@ data class Rate (
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: String = ""
+    val id: Long = -1
 }

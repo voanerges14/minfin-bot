@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  minfin-service-db:
+    image: postgres:12-alpine
+    container_name: minfin-service-db
+    volumes:
+      - minfin-db-postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: minfin-db
+      POSTGRES_USER: minfin
+      POSTGRES_PASSWORD: minfin
+    networks:
+      core:
+    ports:
+      - 5454:5432
+    healthcheck:
+      test: [ "CMD", "pg_isready" ,"--dbname=minfin-service-db", "--host=localhost", "--port=5454", "--username=minfin" ]
+      timeout: 20s
+      retries: 10
+
+networks:
+  core:
+    driver: bridge
+
+volumes:
+  minfin-db-postgres:

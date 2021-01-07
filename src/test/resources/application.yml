@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5454/minfin-db?autoreconnect=true
+    username: minfin
+    password: minfin
+  profiles:
+    active: minfin
+
+auction:
+  scheduler:
+    delay: 20000
+    cron: '0 */1 4-22 * * *'
+  rate-delta: 0.05

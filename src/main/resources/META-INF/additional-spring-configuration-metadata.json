@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "telegram.host",
+      "type": "java.lang.String",
+      "description": "Description for telegram.host."
+    },
+    {
+      "name": "minfin.currency",
+      "type": "java.lang.String",
+      "description": "Description for minfin.currency."
+    }
+  ] }

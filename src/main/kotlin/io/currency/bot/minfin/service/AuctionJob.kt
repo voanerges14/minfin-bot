@@ -20,7 +20,7 @@ class AuctionJob(
     @Scheduled(cron = "\${auction.scheduler.cron}")
     fun execute() {
         val actualRate = auctionService.getCurrentAverageRate()
-        val lowestRate = auctionService.getDayLowestAverageRate() ?: auctionService.updateRate(actualRate, Rate(avg = 0.0))
+        val lowestRate = auctionService.getDayLowestAverageRate() ?: auctionService.updateRate(actualRate, Rate())
 
         println("Actual rate: ${actualRate.avg}")
         println("Lowest rate: ${lowestRate.avg}")

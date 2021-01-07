@@ -9,6 +9,8 @@ class TelegramClient (
     private val props: TelegramProperties
 ) {
     fun notify(text: String): String {
+        println("URL: " + props.url)
+        println("text: $text")
         return get(props.url + text).text
     }
 }

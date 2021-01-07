@@ -33,6 +33,7 @@ class AuctionJob(
         }
 
         if (lowestRate.avg > actualRate.avg) {
+            println("Saving to db")
             auctionService.updateRate(actualRate, lowestRate)
         }
     }

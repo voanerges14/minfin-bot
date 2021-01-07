@@ -1,5 +1,5 @@
 telegram:
-  apiKey: ${BOT_API_KEY}
+  apiKey: 123
   channel: 123
   url: https://api.telegram.org/bot${telegram.apiKey}/sendMessage?chat_id=${telegram.channel}&text=
 

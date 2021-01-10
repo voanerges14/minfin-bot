@@ -33,8 +33,8 @@ import com.github.kotlintelegrambot.logging.LogLevel
 import com.github.kotlintelegrambot.logging.toOkHttpLogLevel
 import com.github.kotlintelegrambot.network.multipart.MultipartBodyFactory
 import com.github.kotlintelegrambot.network.multipart.toMultipartBodyPart
-import com.github.kotlintelegrambot.network.retrofit.converters.DiceEmojiConverterFactory
-import com.github.kotlintelegrambot.network.retrofit.converters.EnumRetrofitConverterFactory
+import io.currency.bot.minfin.telegram.network.retrofit.converters.DiceEmojiConverterFactory
+import io.currency.bot.minfin.telegram.network.retrofit.converters.EnumRetrofitConverterFactory
 import com.github.kotlintelegrambot.network.serialization.GsonFactory
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

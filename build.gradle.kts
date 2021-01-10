@@ -40,6 +40,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("com.squareup.retrofit2:converter-gson:2.3.0")
+	implementation("com.squareup.okhttp3:logging-interceptor:3.8.0")
 
 	implementation("khttp:khttp:1.0.0")
 

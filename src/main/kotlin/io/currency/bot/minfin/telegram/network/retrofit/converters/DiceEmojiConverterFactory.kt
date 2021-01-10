@@ -1,4 +1,4 @@
-package com.github.kotlintelegrambot.network.retrofit.converters
+package io.currency.bot.minfin.telegram.network.retrofit.converters
 
 import com.github.kotlintelegrambot.entities.dice.DiceEmoji
 import java.lang.reflect.Type
@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 
 class DiceEmojiConverterFactory : Converter.Factory() {
 
-    override fun stringConverter(type: Type?, annotations: Array<out Annotation>?, retrofit: Retrofit?): Converter<DiceEmoji, String>? {
+    override fun stringConverter(type: Type, annotations: Array<out Annotation>, retrofit: Retrofit): Converter<*, String>? {
         val clazz = type as? Class<*> ?: return null
         val diceEmojiSuperclass = DiceEmoji::class.java
 

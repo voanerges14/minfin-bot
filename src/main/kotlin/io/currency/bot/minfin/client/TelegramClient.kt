@@ -13,4 +13,8 @@ class TelegramClient (
         println("text: $text")
         return get(props.url + text).text
     }
+
+    fun registerWebHook() {
+
+    }
 }

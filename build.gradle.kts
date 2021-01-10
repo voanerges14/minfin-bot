@@ -39,6 +39,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+	implementation("com.squareup.retrofit2:converter-gson:2.3.0")
 
 	implementation("khttp:khttp:1.0.0")
 

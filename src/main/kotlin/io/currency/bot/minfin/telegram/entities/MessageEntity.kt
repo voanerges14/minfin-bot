@@ -1,48 +1,54 @@
-package com.github.kotlintelegrambot.entities
+package io.currency.bot.minfin.telegram.entities
 
-import com.google.gson.annotations.SerializedName
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.databind.PropertyNamingStrategy
+import com.fasterxml.jackson.databind.annotation.JsonNaming
+
 
 /**
  * Represents one special entity in a text message. For example, hashtags, usernames, URLs, etc.
  */
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
 data class MessageEntity(
-    @SerializedName("type") val type: Type,
-    @SerializedName("offset") val offset: Int,
-    @SerializedName("length") val length: Int,
-    @SerializedName("url") val url: String? = null,
-    @SerializedName("user") val user: User? = null,
-    @SerializedName("language") val language: String? = null
+        val type: Type,
+        val offset: Int,
+        val length: Int,
+        val url: String? = null,
+        val user: User? = null,
+        val language: String? = null
 ) {
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
     enum class Type {
-        @SerializedName("mention")
+        @JsonProperty("mention")
         MENTION,
-        @SerializedName("hashtag")
+        @JsonProperty("hashtag")
         HASHTAG,
-        @SerializedName("cashtag")
+        @JsonProperty("cashtag")
         CASHTAG,
-        @SerializedName("bot_command")
+        @JsonProperty("bot_command")
         BOT_COMMAND,
-        @SerializedName("url")
+        @JsonProperty("url")
         URL,
-        @SerializedName("email")
+        @JsonProperty("email")
         EMAIL,
-        @SerializedName("phone_number")
+        @JsonProperty("phone_number")
         PHONE_NUMBER,
-        @SerializedName("bold")
+        @JsonProperty("bold")
         BOLD,
-        @SerializedName("italic")
+        @JsonProperty("italic")
         ITALIC,
-        @SerializedName("underline")
+        @JsonProperty("underline")
         UNDERLINE,
-        @SerializedName("strikethrough")
+        @JsonProperty("strikethrough")
         STRIKETHROUGH,
-        @SerializedName("code")
+        @JsonProperty("code")
         CODE,
-        @SerializedName("pre")
+        @JsonProperty("pre")
         PRE,
-        @SerializedName("text_link")
+        @JsonProperty("text_link")
         TEXT_LINK,
-        @SerializedName("text_mention")
+        @JsonProperty("text_mention")
         TEXT_MENTION
     }
 }

@@ -1,9 +1,10 @@
-package com.github.kotlintelegrambot.dispatcher.handlers
+package io.currency.bot.minfin.telegram.dispatcher.handlers
 
-import com.github.kotlintelegrambot.Bot
+import com.github.kotlintelegrambot.dispatcher.handlers.*
+import io.currency.bot.minfin.telegram.Bot
 import com.github.kotlintelegrambot.dispatcher.handlers.media.MediaHandlerEnvironment
-import com.github.kotlintelegrambot.entities.Game
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.entities.Game
+import io.currency.bot.minfin.telegram.entities.Update
 import com.github.kotlintelegrambot.entities.files.Animation
 import com.github.kotlintelegrambot.entities.files.Audio
 import com.github.kotlintelegrambot.entities.files.Document
@@ -11,7 +12,7 @@ import com.github.kotlintelegrambot.entities.files.PhotoSize
 import com.github.kotlintelegrambot.entities.files.Video
 import com.github.kotlintelegrambot.entities.files.VideoNote
 import com.github.kotlintelegrambot.entities.files.Voice
-import com.github.kotlintelegrambot.entities.stickers.Sticker
+import io.currency.bot.minfin.telegram.entities.stickers.Sticker
 
 typealias HandleUpdate = (Bot, Update) -> Unit
 

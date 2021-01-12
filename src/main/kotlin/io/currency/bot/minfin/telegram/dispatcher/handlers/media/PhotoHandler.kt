@@ -1,8 +1,8 @@
 package com.github.kotlintelegrambot.dispatcher.handlers.media
 
-import com.github.kotlintelegrambot.dispatcher.handlers.HandlePhotos
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandlePhotos
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.Update
 import com.github.kotlintelegrambot.entities.files.PhotoSize
 
 internal class PhotosHandler(

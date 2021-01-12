@@ -1,9 +1,10 @@
-package com.github.kotlintelegrambot.dispatcher.handlers.media
+package io.currency.bot.minfin.telegram.dispatcher.handlers.media
 
-import com.github.kotlintelegrambot.dispatcher.handlers.HandleSticker
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.Update
-import com.github.kotlintelegrambot.entities.stickers.Sticker
+import com.github.kotlintelegrambot.dispatcher.handlers.media.MediaHandler
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleSticker
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.Update
+import io.currency.bot.minfin.telegram.entities.stickers.Sticker
 
 internal class StickerHandler(
     handleSticker: HandleSticker

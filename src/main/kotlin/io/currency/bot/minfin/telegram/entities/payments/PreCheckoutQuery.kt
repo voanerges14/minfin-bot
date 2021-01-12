@@ -1,6 +1,6 @@
 package com.github.kotlintelegrambot.entities.payments
 
-import com.github.kotlintelegrambot.entities.User
+import io.currency.bot.minfin.telegram.entities.User
 import com.google.gson.annotations.SerializedName
 import java.math.BigInteger
 
@@ -18,11 +18,11 @@ import java.math.BigInteger
  * @see OrderInfo
  */
 data class PreCheckoutQuery(
-    val id: String,
-    val from: User,
-    val currency: String,
-    @SerializedName("total_amount") val totalAmount: BigInteger,
-    @SerializedName("invoice_payload") val invoicePayload: String,
-    @SerializedName("shipping_option_id") val shippingOptionId: String?,
-    @SerializedName("order_info") val orderInfo: OrderInfo?
+        val id: String,
+        val from: User,
+        val currency: String,
+        @SerializedName("total_amount") val totalAmount: BigInteger,
+        @SerializedName("invoice_payload") val invoicePayload: String,
+        @SerializedName("shipping_option_id") val shippingOptionId: String?,
+        @SerializedName("order_info") val orderInfo: OrderInfo?
 )

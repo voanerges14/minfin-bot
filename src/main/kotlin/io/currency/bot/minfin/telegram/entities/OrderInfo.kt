@@ -1,10 +1,13 @@
-package com.github.kotlintelegrambot.entities
+package io.currency.bot.minfin.telegram.entities
 
-import com.google.gson.annotations.SerializedName as Name
+import com.fasterxml.jackson.databind.PropertyNamingStrategy
+import com.fasterxml.jackson.databind.annotation.JsonNaming
+import com.github.kotlintelegrambot.entities.ShippingAddress
 
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
 data class OrderInfo(
-    val name: String? = null,
-    @Name("phone_number") val phoneNumber: String? = null,
-    val email: String? = null,
-    @Name("shipping_address") val shippingAddress: ShippingAddress? = null
+        val name: String? = null,
+        val phoneNumber: String? = null,
+        val email: String? = null,
+        val shippingAddress: ShippingAddress? = null
 )

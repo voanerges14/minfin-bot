@@ -1,13 +1,13 @@
-package com.github.kotlintelegrambot.dispatcher.handlers
+package io.currency.bot.minfin.telegram.dispatcher.handlers
 
-import com.github.kotlintelegrambot.Bot
-import com.github.kotlintelegrambot.entities.CallbackQuery
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.Bot
+import io.currency.bot.minfin.telegram.entities.CallbackQuery
+import io.currency.bot.minfin.telegram.entities.Update
 
 data class CallbackQueryHandlerEnvironment(
-    val bot: Bot,
-    val update: Update,
-    val callbackQuery: CallbackQuery
+        val bot: Bot,
+        val update: Update,
+        val callbackQuery: CallbackQuery
 )
 
 internal class CallbackQueryHandler(
@@ -41,11 +41,11 @@ internal class CallbackQueryHandler(
 }
 
 private class CallbackQueryHandlerProxy(
-    private val handleCallbackQuery: HandleCallbackQuery,
-    private val text: String? = null,
-    private val showAlert: Boolean? = null,
-    private val url: String? = null,
-    private val cacheTime: Int? = null
+        private val handleCallbackQuery: HandleCallbackQuery,
+        private val text: String? = null,
+        private val showAlert: Boolean? = null,
+        private val url: String? = null,
+        private val cacheTime: Int? = null
 ) : HandleUpdate {
 
     override fun invoke(bot: Bot, update: Update) {

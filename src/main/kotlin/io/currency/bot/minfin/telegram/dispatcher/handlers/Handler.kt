@@ -1,6 +1,7 @@
-package com.github.kotlintelegrambot.dispatcher.handlers
+package io.currency.bot.minfin.telegram.dispatcher.handlers
 
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleUpdate
+import io.currency.bot.minfin.telegram.entities.Update
 
 abstract class Handler(val handlerCallback: HandleUpdate) {
     abstract val groupIdentifier: String

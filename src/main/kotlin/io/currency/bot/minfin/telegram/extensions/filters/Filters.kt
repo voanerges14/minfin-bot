@@ -1,6 +1,6 @@
-package com.github.kotlintelegrambot.extensions.filters
+package io.currency.bot.minfin.telegram.extensions.filters
 
-import com.github.kotlintelegrambot.entities.Message
+import io.currency.bot.minfin.telegram.entities.Message
 
 interface Filter {
     fun checkFor(message: Message): Boolean = message.predicate()

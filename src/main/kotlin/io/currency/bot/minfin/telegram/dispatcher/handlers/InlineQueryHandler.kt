@@ -1,13 +1,16 @@
 package com.github.kotlintelegrambot.dispatcher.handlers
 
-import com.github.kotlintelegrambot.Bot
+import io.currency.bot.minfin.telegram.Bot
 import com.github.kotlintelegrambot.entities.InlineQuery
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleInlineQuery
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleUpdate
+import io.currency.bot.minfin.telegram.dispatcher.handlers.Handler
+import io.currency.bot.minfin.telegram.entities.Update
 
 data class InlineQueryHandlerEnvironment(
-    val bot: Bot,
-    val update: Update,
-    val inlineQuery: InlineQuery
+        val bot: Bot,
+        val update: Update,
+        val inlineQuery: InlineQuery
 )
 
 internal class InlineQueryHandler(

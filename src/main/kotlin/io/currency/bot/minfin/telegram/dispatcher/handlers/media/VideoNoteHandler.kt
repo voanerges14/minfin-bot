@@ -1,8 +1,8 @@
 package com.github.kotlintelegrambot.dispatcher.handlers.media
 
-import com.github.kotlintelegrambot.dispatcher.handlers.HandleVideoNote
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleVideoNote
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.Update
 import com.github.kotlintelegrambot.entities.files.VideoNote
 
 internal class VideoNoteHandler(

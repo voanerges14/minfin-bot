@@ -1,11 +1,11 @@
-package com.github.kotlintelegrambot.dispatcher.handlers
+package io.currency.bot.minfin.telegram.dispatcher.handlers
 
-import com.github.kotlintelegrambot.Bot
+import io.currency.bot.minfin.telegram.Bot
 import com.github.kotlintelegrambot.errors.TelegramError
 
 data class ErrorHandlerEnvironment(
-    val bot: Bot,
-    val error: TelegramError
+        val bot: Bot,
+        val error: TelegramError
 )
 
 class ErrorHandler(private val handler: HandleError) {

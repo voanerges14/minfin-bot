@@ -1,15 +1,16 @@
-package com.github.kotlintelegrambot
+package io.currency.bot.minfin.telegram
 
-import com.github.kotlintelegrambot.dispatcher.Dispatcher
+import com.github.kotlintelegrambot.UpdateMapper
+import io.currency.bot.minfin.telegram.dispatcher.Dispatcher
 import com.github.kotlintelegrambot.entities.BotCommand
 import com.github.kotlintelegrambot.entities.ChatAction
 import com.github.kotlintelegrambot.entities.ChatPermissions
 import com.github.kotlintelegrambot.entities.InlineKeyboardMarkup
-import com.github.kotlintelegrambot.entities.MessageEntity
+import io.currency.bot.minfin.telegram.entities.MessageEntity
 import com.github.kotlintelegrambot.entities.ParseMode
 import com.github.kotlintelegrambot.entities.ReplyMarkup
 import com.github.kotlintelegrambot.entities.TelegramFile
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.entities.Update
 import com.github.kotlintelegrambot.entities.dice.DiceEmoji
 import com.github.kotlintelegrambot.entities.inlinequeryresults.InlineQueryResult
 import com.github.kotlintelegrambot.entities.inputmedia.InputMedia
@@ -21,7 +22,7 @@ import com.github.kotlintelegrambot.entities.stickers.MaskPosition
 import com.github.kotlintelegrambot.errors.RetrieveUpdatesError
 import com.github.kotlintelegrambot.errors.TelegramError
 import com.github.kotlintelegrambot.logging.LogLevel
-import com.github.kotlintelegrambot.network.ApiClient
+import io.currency.bot.minfin.telegram.network.ApiClient
 import com.github.kotlintelegrambot.network.bimap
 import com.github.kotlintelegrambot.network.call
 import com.github.kotlintelegrambot.network.serialization.GsonFactory
@@ -46,15 +47,15 @@ fun Bot.Builder.webhook(
 }
 
 class Bot private constructor(
-    private val updater: Updater,
-    private val updateMapper: UpdateMapper,
-    private val webhookConfig: WebhookConfig?,
-    token: String,
-    apiUrl: String,
-    timeout: Int = 30,
-    logLevel: LogLevel,
-    proxy: Proxy,
-    gson: Gson
+        private val updater: Updater,
+        private val updateMapper: UpdateMapper,
+        private val webhookConfig: WebhookConfig?,
+        token: String,
+        apiUrl: String,
+        timeout: Int = 30,
+        logLevel: LogLevel,
+        proxy: Proxy,
+        gson: Gson
 ) {
 
     private val apiClient: ApiClient = ApiClient(token, apiUrl, timeout, logLevel, proxy, gson)
@@ -80,7 +81,7 @@ class Bot private constructor(
             return Bot(updater, updateMapper, webhookConfig, token, apiUrl, timeout, logLevel, proxy, gson)
         }
 
-        fun build(body: Bot.Builder.() -> Unit): Bot {
+        fun build(body: Builder.() -> Unit): Bot {
             body()
             return Bot(updater, updateMapper, webhookConfig, token, apiUrl, timeout, logLevel, proxy, gson)
         }
@@ -516,15 +517,15 @@ class Bot private constructor(
     ).call()
 
     fun sendVoice(
-        chatId: Long,
-        audio: ByteArray,
-        caption: String? = null,
-        parseMode: ParseMode? = null,
-        captionEntities: List<MessageEntity>? = null,
-        duration: Int? = null,
-        disableNotification: Boolean? = null,
-        replyToMessageId: Long? = null,
-        replyMarkup: ReplyMarkup? = null
+            chatId: Long,
+            audio: ByteArray,
+            caption: String? = null,
+            parseMode: ParseMode? = null,
+            captionEntities: List<MessageEntity>? = null,
+            duration: Int? = null,
+            disableNotification: Boolean? = null,
+            replyToMessageId: Long? = null,
+            replyMarkup: ReplyMarkup? = null
     ) = apiClient.sendVoice(
         chatId,
         audio,
@@ -538,15 +539,15 @@ class Bot private constructor(
     ).call()
 
     fun sendVoice(
-        chatId: Long,
-        audio: SystemFile,
-        caption: String? = null,
-        parseMode: ParseMode? = null,
-        captionEntities: List<MessageEntity>? = null,
-        duration: Int? = null,
-        disableNotification: Boolean? = null,
-        replyToMessageId: Long? = null,
-        replyMarkup: ReplyMarkup? = null
+            chatId: Long,
+            audio: SystemFile,
+            caption: String? = null,
+            parseMode: ParseMode? = null,
+            captionEntities: List<MessageEntity>? = null,
+            duration: Int? = null,
+            disableNotification: Boolean? = null,
+            replyToMessageId: Long? = null,
+            replyMarkup: ReplyMarkup? = null
     ) = apiClient.sendVoice(
         chatId,
         audio,
@@ -560,15 +561,15 @@ class Bot private constructor(
     ).call()
 
     fun sendVoice(
-        chatId: Long,
-        audioId: String,
-        caption: String? = null,
-        parseMode: ParseMode? = null,
-        captionEntities: List<MessageEntity>? = null,
-        duration: Int? = null,
-        disableNotification: Boolean? = null,
-        replyToMessageId: Long? = null,
-        replyMarkup: ReplyMarkup? = null
+            chatId: Long,
+            audioId: String,
+            caption: String? = null,
+            parseMode: ParseMode? = null,
+            captionEntities: List<MessageEntity>? = null,
+            duration: Int? = null,
+            disableNotification: Boolean? = null,
+            replyToMessageId: Long? = null,
+            replyMarkup: ReplyMarkup? = null
     ) = apiClient.sendVoice(
         chatId,
         audioId,

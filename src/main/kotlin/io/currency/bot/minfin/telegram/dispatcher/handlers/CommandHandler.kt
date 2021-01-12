@@ -1,14 +1,14 @@
-package com.github.kotlintelegrambot.dispatcher.handlers
+package io.currency.bot.minfin.telegram.dispatcher.handlers
 
-import com.github.kotlintelegrambot.Bot
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.Bot
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.Update
 
 data class CommandHandlerEnvironment internal constructor(
-    val bot: Bot,
-    val update: Update,
-    val message: Message,
-    val args: List<String>
+        val bot: Bot,
+        val update: Update,
+        val message: Message,
+        val args: List<String>
 )
 
 internal class CommandHandler(

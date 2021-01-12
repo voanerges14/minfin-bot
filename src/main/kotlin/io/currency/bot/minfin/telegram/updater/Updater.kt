@@ -1,8 +1,8 @@
 package com.github.kotlintelegrambot.updater
 
-import com.github.kotlintelegrambot.Bot
-import com.github.kotlintelegrambot.dispatcher.Dispatcher
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.Bot
+import io.currency.bot.minfin.telegram.dispatcher.Dispatcher
+import io.currency.bot.minfin.telegram.entities.Update
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 

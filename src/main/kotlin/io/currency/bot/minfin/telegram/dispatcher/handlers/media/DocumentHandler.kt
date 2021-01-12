@@ -1,8 +1,9 @@
-package com.github.kotlintelegrambot.dispatcher.handlers.media
+package io.currency.bot.minfin.telegram.dispatcher.handlers.media
 
-import com.github.kotlintelegrambot.dispatcher.handlers.HandleDocument
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.Update
+import com.github.kotlintelegrambot.dispatcher.handlers.media.MediaHandler
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleDocument
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.Update
 import com.github.kotlintelegrambot.entities.files.Document
 
 internal class DocumentHandler(

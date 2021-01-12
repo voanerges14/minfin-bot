@@ -1,14 +1,17 @@
 package com.github.kotlintelegrambot.dispatcher.handlers
 
-import com.github.kotlintelegrambot.Bot
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.Bot
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleText
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleUpdate
+import io.currency.bot.minfin.telegram.dispatcher.handlers.Handler
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.Update
 
 data class TextHandlerEnvironment(
-    val bot: Bot,
-    val update: Update,
-    val message: Message,
-    val text: String
+        val bot: Bot,
+        val update: Update,
+        val message: Message,
+        val text: String
 )
 
 internal class TextHandler(

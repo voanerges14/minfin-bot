@@ -1,13 +1,16 @@
 package com.github.kotlintelegrambot.dispatcher.handlers
 
-import com.github.kotlintelegrambot.Bot
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.Bot
+import io.currency.bot.minfin.telegram.entities.Update
 import com.github.kotlintelegrambot.entities.payments.PreCheckoutQuery
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandlePreCheckoutQuery
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleUpdate
+import io.currency.bot.minfin.telegram.dispatcher.handlers.Handler
 
 data class PreCheckoutQueryHandlerEnvironment(
-    val bot: Bot,
-    val update: Update,
-    val preCheckoutQuery: PreCheckoutQuery
+        val bot: Bot,
+        val update: Update,
+        val preCheckoutQuery: PreCheckoutQuery
 )
 
 internal class PreCheckoutQueryHandler(

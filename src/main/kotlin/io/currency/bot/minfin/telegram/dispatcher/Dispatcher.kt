@@ -1,9 +1,9 @@
-package com.github.kotlintelegrambot.dispatcher
+package io.currency.bot.minfin.telegram.dispatcher
 
-import com.github.kotlintelegrambot.Bot
-import com.github.kotlintelegrambot.dispatcher.handlers.ErrorHandler
-import com.github.kotlintelegrambot.dispatcher.handlers.Handler
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.Bot
+import io.currency.bot.minfin.telegram.dispatcher.handlers.ErrorHandler
+import io.currency.bot.minfin.telegram.dispatcher.handlers.Handler
+import io.currency.bot.minfin.telegram.entities.Update
 import com.github.kotlintelegrambot.errors.TelegramError
 import com.github.kotlintelegrambot.logging.LogLevel
 import com.github.kotlintelegrambot.types.DispatchableObject

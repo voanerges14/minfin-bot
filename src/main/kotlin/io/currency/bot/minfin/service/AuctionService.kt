@@ -35,7 +35,7 @@ class AuctionService(
 
     @Transactional
     fun updateRate(rateC: Rate, rateL: Rate): Rate {
-        rateRepository.findById(rateL.id).map { rateRepository::delete }
+        rateRepository.findById(rateL.id).map(rateRepository::delete)
         return rateRepository.save(rateC)
     }
 }

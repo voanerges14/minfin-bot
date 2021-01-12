@@ -1,15 +1,15 @@
-package com.github.kotlintelegrambot.dispatcher.handlers
+package io.currency.bot.minfin.telegram.dispatcher.handlers
 
-import com.github.kotlintelegrambot.Bot
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.Bot
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.Update
 import com.github.kotlintelegrambot.entities.dice.Dice
 
 data class DiceHandlerEnvironment(
-    val bot: Bot,
-    val update: Update,
-    val message: Message,
-    val dice: Dice
+        val bot: Bot,
+        val update: Update,
+        val message: Message,
+        val dice: Dice
 )
 
 internal class DiceHandler(handleDice: HandleDice) : Handler(HandleDiceProxy(handleDice)) {
@@ -20,7 +20,7 @@ internal class DiceHandler(handleDice: HandleDice) : Handler(HandleDiceProxy(han
 }
 
 private class HandleDiceProxy(private val handleDice: HandleDice) :
-    HandleUpdate {
+        HandleUpdate {
     override fun invoke(bot: Bot, update: Update) {
         val message = update.message
         val dice = message?.dice

@@ -1,25 +1,28 @@
-package com.github.kotlintelegrambot.entities
+package io.currency.bot.minfin.telegram.entities
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy
+import com.fasterxml.jackson.databind.annotation.JsonNaming
+import com.github.kotlintelegrambot.entities.InlineQuery
 import com.github.kotlintelegrambot.entities.payments.PreCheckoutQuery
 import com.github.kotlintelegrambot.entities.payments.ShippingQuery
-import com.github.kotlintelegrambot.entities.polls.Poll
-import com.github.kotlintelegrambot.entities.polls.PollAnswer
+import io.currency.bot.minfin.telegram.entities.polls.Poll
+import io.currency.bot.minfin.telegram.entities.polls.PollAnswer
 import com.github.kotlintelegrambot.types.DispatchableObject
-import com.google.gson.annotations.SerializedName as Name
 
-data class Update constructor(
-    @Name("update_id") val updateId: Long,
-    val message: Message? = null,
-    @Name("edited_message") val editedMessage: Message? = null,
-    @Name("channel_post") val channelPost: Message? = null,
-    @Name("edited_channel_post") val editedChannelPost: Message? = null,
-    @Name("inline_query") val inlineQuery: InlineQuery? = null,
-    @Name("chosen_inline_result") val chosenInlineResult: ChosenInlineResult? = null,
-    @Name("callback_query") val callbackQuery: CallbackQuery? = null,
-    @Name("shipping_query") val shippingQuery: ShippingQuery? = null,
-    @Name("pre_checkout_query") val preCheckoutQuery: PreCheckoutQuery? = null,
-    @Name("poll") val poll: Poll? = null,
-    @Name("poll_answer") val pollAnswer: PollAnswer? = null
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy::class)
+data class Update(
+        val updateId: Long,
+        val message: Message? = null,
+        val editedMessage: Message? = null,
+        val channelPost: Message? = null,
+        val editedChannelPost: Message? = null,
+        val inlineQuery: InlineQuery? = null,
+        val chosenInlineResult: ChosenInlineResult? = null,
+        val callbackQuery: CallbackQuery? = null,
+        val shippingQuery: ShippingQuery? = null,
+        val preCheckoutQuery: PreCheckoutQuery? = null,
+        val poll: Poll? = null,
+        val pollAnswer: PollAnswer? = null
 ) : DispatchableObject
 
 /**

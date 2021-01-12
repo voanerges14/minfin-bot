@@ -1,7 +1,8 @@
 telegram:
   apiKey: 123
   channel: 123
-  url: https://api.telegram.org/bot${telegram.apiKey}/sendMessage?chat_id=${telegram.channel}&text=
+  host: https://api.telegram.org/bot
+  url: ${telegram.host}${telegram.apiKey}/sendMessage?chat_id=${telegram.channel}&text=
 
 minfin:
   currency: usd

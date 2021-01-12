@@ -1,6 +1,7 @@
-package com.github.kotlintelegrambot.entities.polls
+package io.currency.bot.minfin.telegram.entities.polls
 
-import com.github.kotlintelegrambot.entities.User
+import com.github.kotlintelegrambot.entities.polls.PollFields
+import io.currency.bot.minfin.telegram.entities.User
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -8,7 +9,7 @@ import com.google.gson.annotations.SerializedName
  * https://core.telegram.org/bots/api#poll_answer
  */
 data class PollAnswer(
-    @SerializedName(PollFields.POLL_ID) val pollId: String,
-    @SerializedName(PollFields.USER) val user: User,
-    @SerializedName(PollFields.OPTION_IDS) val optionIds: List<Int>
+        @SerializedName(PollFields.POLL_ID) val pollId: String,
+        @SerializedName(PollFields.USER) val user: User,
+        @SerializedName(PollFields.OPTION_IDS) val optionIds: List<Int>
 )

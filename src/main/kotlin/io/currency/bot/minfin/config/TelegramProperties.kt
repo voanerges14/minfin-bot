@@ -6,5 +6,8 @@ import org.springframework.stereotype.Component
 @Component
 @ConfigurationProperties(prefix = "telegram")
 data class TelegramProperties(
-        var url: String = ""
+        var url: String = "",
+        var host: String = "",
+        var channel: String = "",
+        var apiKey: String = ""
 )

@@ -1,19 +1,21 @@
 package com.github.kotlintelegrambot.dispatcher.handlers
 
-import com.github.kotlintelegrambot.Bot
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.Update
-import com.github.kotlintelegrambot.extensions.filters.Filter
+import io.currency.bot.minfin.telegram.Bot
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.Update
+import io.currency.bot.minfin.telegram.extensions.filters.Filter
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleUpdate
+import io.currency.bot.minfin.telegram.dispatcher.handlers.Handler
 
 data class MessageHandlerEnvironment(
-    val bot: Bot,
-    val update: Update,
-    val message: Message
+        val bot: Bot,
+        val update: Update,
+        val message: Message
 )
 
 internal class MessageHandler(
-    private val filter: Filter,
-    handler: MessageHandlerEnvironment.() -> Unit
+        private val filter: Filter,
+        handler: MessageHandlerEnvironment.() -> Unit
 ) : Handler(MessageHandlerProxy(handler)) {
 
     override val groupIdentifier: String

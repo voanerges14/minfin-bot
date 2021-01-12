@@ -1,15 +1,18 @@
 package com.github.kotlintelegrambot.dispatcher.handlers
 
-import com.github.kotlintelegrambot.Bot
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.Update
-import com.github.kotlintelegrambot.entities.User
+import io.currency.bot.minfin.telegram.Bot
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleNewChatMembers
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleUpdate
+import io.currency.bot.minfin.telegram.dispatcher.handlers.Handler
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.Update
+import io.currency.bot.minfin.telegram.entities.User
 
 data class NewChatMembersHandlerEnvironment(
-    val bot: Bot,
-    val update: Update,
-    val message: Message,
-    val newChatMembers: List<User>
+        val bot: Bot,
+        val update: Update,
+        val message: Message,
+        val newChatMembers: List<User>
 )
 
 internal class NewChatMembersHandler(

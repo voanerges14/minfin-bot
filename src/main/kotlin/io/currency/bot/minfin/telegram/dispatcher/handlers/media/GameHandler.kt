@@ -1,9 +1,10 @@
-package com.github.kotlintelegrambot.dispatcher.handlers.media
+package io.currency.bot.minfin.telegram.dispatcher.handlers.media
 
-import com.github.kotlintelegrambot.dispatcher.handlers.HandleGame
-import com.github.kotlintelegrambot.entities.Game
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.Update
+import com.github.kotlintelegrambot.dispatcher.handlers.media.MediaHandler
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleGame
+import io.currency.bot.minfin.telegram.entities.Game
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.Update
 
 internal class GameHandler(
     handleGame: HandleGame

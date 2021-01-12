@@ -1,22 +1,22 @@
 package com.github.kotlintelegrambot.dispatcher.handlers.media
 
-import com.github.kotlintelegrambot.Bot
-import com.github.kotlintelegrambot.dispatcher.handlers.HandleUpdate
-import com.github.kotlintelegrambot.dispatcher.handlers.Handler
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.Bot
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleUpdate
+import io.currency.bot.minfin.telegram.dispatcher.handlers.Handler
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.Update
 
 data class MediaHandlerEnvironment<Media>(
-    val bot: Bot,
-    val update: Update,
-    val message: Message,
-    val media: Media
+        val bot: Bot,
+        val update: Update,
+        val message: Message,
+        val media: Media
 )
 
 internal abstract class MediaHandler<Media>(
-    handleMediaUpdate: MediaHandlerEnvironment<Media>.() -> Unit,
-    toMedia: Message.() -> Media,
-    private val isUpdateMedia: (Update) -> Boolean
+        handleMediaUpdate: MediaHandlerEnvironment<Media>.() -> Unit,
+        toMedia: Message.() -> Media,
+        private val isUpdateMedia: (Update) -> Boolean
 ) : Handler(MediaHandlerProxy(handleMediaUpdate, toMedia)) {
 
     override val groupIdentifier: String

@@ -1,15 +1,18 @@
 package com.github.kotlintelegrambot.dispatcher.handlers
 
-import com.github.kotlintelegrambot.Bot
+import io.currency.bot.minfin.telegram.Bot
 import com.github.kotlintelegrambot.entities.Location
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleLocation
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleUpdate
+import io.currency.bot.minfin.telegram.dispatcher.handlers.Handler
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.Update
 
 data class LocationHandlerEnvironment(
-    val bot: Bot,
-    val update: Update,
-    val message: Message,
-    val location: Location
+        val bot: Bot,
+        val update: Update,
+        val message: Message,
+        val location: Location
 )
 
 internal class LocationHandler(

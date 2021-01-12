@@ -1,21 +1,21 @@
-package com.github.kotlintelegrambot.network
+package io.currency.bot.minfin.telegram.network
 
 import com.github.kotlintelegrambot.entities.BotCommand
 import com.github.kotlintelegrambot.entities.Chat
 import com.github.kotlintelegrambot.entities.ChatAction
-import com.github.kotlintelegrambot.entities.ChatMember
+import io.currency.bot.minfin.telegram.entities.ChatMember
 import com.github.kotlintelegrambot.entities.ChatPermissions
 import com.github.kotlintelegrambot.entities.InlineKeyboardMarkup
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.MessageEntity
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.MessageEntity
 import com.github.kotlintelegrambot.entities.ParseMode
 import com.github.kotlintelegrambot.entities.ReplyMarkup
 import com.github.kotlintelegrambot.entities.TelegramFile
 import com.github.kotlintelegrambot.entities.TelegramFile.ByFile
 import com.github.kotlintelegrambot.entities.TelegramFile.ByFileId
 import com.github.kotlintelegrambot.entities.TelegramFile.ByUrl
-import com.github.kotlintelegrambot.entities.Update
-import com.github.kotlintelegrambot.entities.User
+import io.currency.bot.minfin.telegram.entities.Update
+import io.currency.bot.minfin.telegram.entities.User
 import com.github.kotlintelegrambot.entities.UserProfilePhotos
 import com.github.kotlintelegrambot.entities.WebhookInfo
 import com.github.kotlintelegrambot.entities.dice.DiceEmoji
@@ -25,12 +25,14 @@ import com.github.kotlintelegrambot.entities.inputmedia.InputMedia
 import com.github.kotlintelegrambot.entities.inputmedia.MediaGroup
 import com.github.kotlintelegrambot.entities.payments.LabeledPrice
 import com.github.kotlintelegrambot.entities.payments.ShippingOption
-import com.github.kotlintelegrambot.entities.polls.Poll
+import io.currency.bot.minfin.telegram.entities.polls.Poll
 import com.github.kotlintelegrambot.entities.polls.PollType
 import com.github.kotlintelegrambot.entities.stickers.MaskPosition
 import com.github.kotlintelegrambot.entities.stickers.StickerSet
 import com.github.kotlintelegrambot.logging.LogLevel
 import com.github.kotlintelegrambot.logging.toOkHttpLogLevel
+import com.github.kotlintelegrambot.network.*
+import com.github.kotlintelegrambot.network.ApiConstants
 import com.github.kotlintelegrambot.network.multipart.MultipartBodyFactory
 import com.github.kotlintelegrambot.network.multipart.toMultipartBodyPart
 import io.currency.bot.minfin.telegram.network.retrofit.converters.DiceEmojiConverterFactory
@@ -485,15 +487,15 @@ class ApiClient(
     }
 
     fun sendVoice(
-        chatId: Long,
-        audio: SystemFile,
-        caption: String?,
-        parseMode: ParseMode?,
-        captionEntities: List<MessageEntity>?,
-        duration: Int?,
-        disableNotification: Boolean?,
-        replyToMessageId: Long?,
-        replyMarkup: ReplyMarkup?
+            chatId: Long,
+            audio: SystemFile,
+            caption: String?,
+            parseMode: ParseMode?,
+            captionEntities: List<MessageEntity>?,
+            duration: Int?,
+            disableNotification: Boolean?,
+            replyToMessageId: Long?,
+            replyMarkup: ReplyMarkup?
     ): Call<Response<Message>> {
 
         return service.sendVoice(
@@ -510,15 +512,15 @@ class ApiClient(
     }
 
     fun sendVoice(
-        chatId: Long,
-        audioId: String,
-        caption: String?,
-        parseMode: ParseMode?,
-        captionEntities: List<MessageEntity>?,
-        duration: Int?,
-        disableNotification: Boolean?,
-        replyToMessageId: Long?,
-        replyMarkup: ReplyMarkup?
+            chatId: Long,
+            audioId: String,
+            caption: String?,
+            parseMode: ParseMode?,
+            captionEntities: List<MessageEntity>?,
+            duration: Int?,
+            disableNotification: Boolean?,
+            replyToMessageId: Long?,
+            replyMarkup: ReplyMarkup?
     ): Call<Response<Message>> {
 
         return service.sendVoice(
@@ -535,15 +537,15 @@ class ApiClient(
     }
 
     fun sendVoice(
-        chatId: Long,
-        audio: ByteArray,
-        caption: String?,
-        parseMode: ParseMode?,
-        captionEntities: List<MessageEntity>?,
-        duration: Int? = null,
-        disableNotification: Boolean? = null,
-        replyToMessageId: Long? = null,
-        replyMarkup: ReplyMarkup? = null
+            chatId: Long,
+            audio: ByteArray,
+            caption: String?,
+            parseMode: ParseMode?,
+            captionEntities: List<MessageEntity>?,
+            duration: Int? = null,
+            disableNotification: Boolean? = null,
+            replyToMessageId: Long? = null,
+            replyMarkup: ReplyMarkup? = null
     ): Call<Response<Message>> {
 
         return service.sendVoice(

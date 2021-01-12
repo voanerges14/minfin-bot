@@ -1,15 +1,15 @@
-package com.github.kotlintelegrambot.dispatcher.handlers
+package io.currency.bot.minfin.telegram.dispatcher.handlers
 
-import com.github.kotlintelegrambot.Bot
+import io.currency.bot.minfin.telegram.Bot
 import com.github.kotlintelegrambot.entities.Contact
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.Update
+import io.currency.bot.minfin.telegram.entities.Message
+import io.currency.bot.minfin.telegram.entities.Update
 
 data class ContactHandlerEnvironment(
-    val bot: Bot,
-    val update: Update,
-    val message: Message,
-    val contact: Contact
+        val bot: Bot,
+        val update: Update,
+        val message: Message,
+        val contact: Contact
 )
 
 internal class ContactHandler(

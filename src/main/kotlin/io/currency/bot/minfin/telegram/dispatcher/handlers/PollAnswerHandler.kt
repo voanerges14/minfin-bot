@@ -1,13 +1,16 @@
 package com.github.kotlintelegrambot.dispatcher.handlers
 
-import com.github.kotlintelegrambot.Bot
-import com.github.kotlintelegrambot.entities.Update
-import com.github.kotlintelegrambot.entities.polls.PollAnswer
+import io.currency.bot.minfin.telegram.Bot
+import io.currency.bot.minfin.telegram.entities.Update
+import io.currency.bot.minfin.telegram.entities.polls.PollAnswer
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandlePollAnswer
+import io.currency.bot.minfin.telegram.dispatcher.handlers.HandleUpdate
+import io.currency.bot.minfin.telegram.dispatcher.handlers.Handler
 
 data class PollAnswerHandlerEnvironment(
-    val bot: Bot,
-    val update: Update,
-    val pollAnswer: PollAnswer
+        val bot: Bot,
+        val update: Update,
+        val pollAnswer: PollAnswer
 )
 
 internal class PollAnswerHandler(

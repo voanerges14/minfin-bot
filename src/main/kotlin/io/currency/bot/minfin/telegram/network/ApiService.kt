@@ -1,14 +1,14 @@
-package com.github.kotlintelegrambot.network
+package io.currency.bot.minfin.telegram.network
 
 import com.github.kotlintelegrambot.entities.BotCommand
 import com.github.kotlintelegrambot.entities.Chat
 import com.github.kotlintelegrambot.entities.ChatAction
-import com.github.kotlintelegrambot.entities.ChatMember
-import com.github.kotlintelegrambot.entities.Message
+import io.currency.bot.minfin.telegram.entities.ChatMember
+import io.currency.bot.minfin.telegram.entities.Message
 import com.github.kotlintelegrambot.entities.ParseMode
 import com.github.kotlintelegrambot.entities.ReplyMarkup
-import com.github.kotlintelegrambot.entities.Update
-import com.github.kotlintelegrambot.entities.User
+import io.currency.bot.minfin.telegram.entities.Update
+import io.currency.bot.minfin.telegram.entities.User
 import com.github.kotlintelegrambot.entities.UserProfilePhotos
 import com.github.kotlintelegrambot.entities.WebhookInfo
 import com.github.kotlintelegrambot.entities.dice.DiceEmoji
@@ -17,11 +17,13 @@ import com.github.kotlintelegrambot.entities.files.File
 import com.github.kotlintelegrambot.entities.inputmedia.InputMedia
 import com.github.kotlintelegrambot.entities.payments.LabeledPrice
 import com.github.kotlintelegrambot.entities.payments.ShippingOption
-import com.github.kotlintelegrambot.entities.polls.Poll
+import io.currency.bot.minfin.telegram.entities.polls.Poll
 import com.github.kotlintelegrambot.entities.polls.PollFields
 import com.github.kotlintelegrambot.entities.polls.PollType
 import com.github.kotlintelegrambot.entities.stickers.MaskPosition
 import com.github.kotlintelegrambot.entities.stickers.StickerSet
+import com.github.kotlintelegrambot.network.ApiConstants
+import com.github.kotlintelegrambot.network.Response
 import com.google.gson.Gson
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -51,27 +53,27 @@ interface ApiService {
     @FormUrlEncoded
     @POST("setWebhook")
     fun setWebhook(
-        @Field(ApiConstants.SetWebhook.URL) url: String,
-        @Field(ApiConstants.SetWebhook.MAX_CONNECTIONS) maxConnections: Int? = null,
-        @Field(ApiConstants.SetWebhook.ALLOWED_UPDATES) allowedUpdates: List<String>? = null
+            @Field(ApiConstants.SetWebhook.URL) url: String,
+            @Field(ApiConstants.SetWebhook.MAX_CONNECTIONS) maxConnections: Int? = null,
+            @Field(ApiConstants.SetWebhook.ALLOWED_UPDATES) allowedUpdates: List<String>? = null
     ): Call<Response<Boolean>>
 
     @FormUrlEncoded
     @POST("setWebhook")
     fun setWebhookWithCertificateAsFileId(
-        @Field(ApiConstants.SetWebhook.URL) url: String,
-        @Field(ApiConstants.SetWebhook.CERTIFICATE) certificateFileId: String,
-        @Field(ApiConstants.SetWebhook.MAX_CONNECTIONS) maxConnections: Int? = null,
-        @Field(ApiConstants.SetWebhook.ALLOWED_UPDATES) allowedUpdates: List<String>? = null
+            @Field(ApiConstants.SetWebhook.URL) url: String,
+            @Field(ApiConstants.SetWebhook.CERTIFICATE) certificateFileId: String,
+            @Field(ApiConstants.SetWebhook.MAX_CONNECTIONS) maxConnections: Int? = null,
+            @Field(ApiConstants.SetWebhook.ALLOWED_UPDATES) allowedUpdates: List<String>? = null
     ): Call<Response<Boolean>>
 
     @FormUrlEncoded
     @POST("setWebhook")
     fun setWebhookWithCertificateAsFileUrl(
-        @Field(ApiConstants.SetWebhook.URL) url: String,
-        @Field(ApiConstants.SetWebhook.CERTIFICATE) certificateUrl: String,
-        @Field(ApiConstants.SetWebhook.MAX_CONNECTIONS) maxConnections: Int? = null,
-        @Field(ApiConstants.SetWebhook.ALLOWED_UPDATES) allowedUpdates: List<String>? = null
+            @Field(ApiConstants.SetWebhook.URL) url: String,
+            @Field(ApiConstants.SetWebhook.CERTIFICATE) certificateUrl: String,
+            @Field(ApiConstants.SetWebhook.MAX_CONNECTIONS) maxConnections: Int? = null,
+            @Field(ApiConstants.SetWebhook.ALLOWED_UPDATES) allowedUpdates: List<String>? = null
     ): Call<Response<Boolean>>
 
     @Multipart
@@ -379,41 +381,41 @@ interface ApiService {
     @FormUrlEncoded
     @POST("sendPoll")
     fun sendPoll(
-        @Field(ApiConstants.CHAT_ID) chatId: Long,
-        @Field(PollFields.QUESTION) question: String,
-        @Field(PollFields.OPTIONS) options: String,
-        @Field(PollFields.IS_ANONYMOUS) isAnonymous: Boolean? = null,
-        @Field(PollFields.TYPE) type: PollType? = null,
-        @Field(PollFields.ALLOWS_MULTIPLE_ANSWERS) allowsMultipleAnswers: Boolean? = null,
-        @Field(PollFields.CORRECT_OPTION_ID) correctOptionId: Int? = null,
-        @Field(PollFields.EXPLANATION) explanation: String? = null,
-        @Field(PollFields.EXPLANATION_PARSE_MODE) explanationParseMode: ParseMode? = null,
-        @Field(PollFields.OPEN_PERIOD) openPeriod: Int? = null,
-        @Field(PollFields.CLOSE_DATE) closeDate: Long? = null,
-        @Field(PollFields.IS_CLOSED) isClosed: Boolean? = null,
-        @Field(ApiConstants.DISABLE_NOTIFICATION) disableNotification: Boolean?,
-        @Field(ApiConstants.REPLY_TO_MESSAGE_ID) replyToMessageId: Long?,
-        @Field(ApiConstants.REPLY_MARKUP) replyMarkup: ReplyMarkup? = null
+            @Field(ApiConstants.CHAT_ID) chatId: Long,
+            @Field(PollFields.QUESTION) question: String,
+            @Field(PollFields.OPTIONS) options: String,
+            @Field(PollFields.IS_ANONYMOUS) isAnonymous: Boolean? = null,
+            @Field(PollFields.TYPE) type: PollType? = null,
+            @Field(PollFields.ALLOWS_MULTIPLE_ANSWERS) allowsMultipleAnswers: Boolean? = null,
+            @Field(PollFields.CORRECT_OPTION_ID) correctOptionId: Int? = null,
+            @Field(PollFields.EXPLANATION) explanation: String? = null,
+            @Field(PollFields.EXPLANATION_PARSE_MODE) explanationParseMode: ParseMode? = null,
+            @Field(PollFields.OPEN_PERIOD) openPeriod: Int? = null,
+            @Field(PollFields.CLOSE_DATE) closeDate: Long? = null,
+            @Field(PollFields.IS_CLOSED) isClosed: Boolean? = null,
+            @Field(ApiConstants.DISABLE_NOTIFICATION) disableNotification: Boolean?,
+            @Field(ApiConstants.REPLY_TO_MESSAGE_ID) replyToMessageId: Long?,
+            @Field(ApiConstants.REPLY_MARKUP) replyMarkup: ReplyMarkup? = null
     ): Call<Response<Message>>
 
     @FormUrlEncoded
     @POST("sendPoll")
     fun sendPoll(
-        @Field(ApiConstants.CHAT_ID) channelUsername: String,
-        @Field(PollFields.QUESTION) question: String,
-        @Field(PollFields.OPTIONS) options: String,
-        @Field(PollFields.IS_ANONYMOUS) isAnonymous: Boolean? = null,
-        @Field(PollFields.TYPE) type: PollType? = null,
-        @Field(PollFields.ALLOWS_MULTIPLE_ANSWERS) allowsMultipleAnswers: Boolean? = null,
-        @Field(PollFields.CORRECT_OPTION_ID) correctOptionId: Int? = null,
-        @Field(PollFields.EXPLANATION) explanation: String? = null,
-        @Field(PollFields.EXPLANATION_PARSE_MODE) explanationParseMode: ParseMode? = null,
-        @Field(PollFields.OPEN_PERIOD) openPeriod: Int? = null,
-        @Field(PollFields.CLOSE_DATE) closeDate: Long? = null,
-        @Field(PollFields.IS_CLOSED) isClosed: Boolean? = null,
-        @Field(ApiConstants.DISABLE_NOTIFICATION) disableNotification: Boolean?,
-        @Field(ApiConstants.REPLY_TO_MESSAGE_ID) replyToMessageId: Long?,
-        @Field(ApiConstants.REPLY_MARKUP) replyMarkup: ReplyMarkup? = null
+            @Field(ApiConstants.CHAT_ID) channelUsername: String,
+            @Field(PollFields.QUESTION) question: String,
+            @Field(PollFields.OPTIONS) options: String,
+            @Field(PollFields.IS_ANONYMOUS) isAnonymous: Boolean? = null,
+            @Field(PollFields.TYPE) type: PollType? = null,
+            @Field(PollFields.ALLOWS_MULTIPLE_ANSWERS) allowsMultipleAnswers: Boolean? = null,
+            @Field(PollFields.CORRECT_OPTION_ID) correctOptionId: Int? = null,
+            @Field(PollFields.EXPLANATION) explanation: String? = null,
+            @Field(PollFields.EXPLANATION_PARSE_MODE) explanationParseMode: ParseMode? = null,
+            @Field(PollFields.OPEN_PERIOD) openPeriod: Int? = null,
+            @Field(PollFields.CLOSE_DATE) closeDate: Long? = null,
+            @Field(PollFields.IS_CLOSED) isClosed: Boolean? = null,
+            @Field(ApiConstants.DISABLE_NOTIFICATION) disableNotification: Boolean?,
+            @Field(ApiConstants.REPLY_TO_MESSAGE_ID) replyToMessageId: Long?,
+            @Field(ApiConstants.REPLY_MARKUP) replyMarkup: ReplyMarkup? = null
     ): Call<Response<Message>>
 
     @FormUrlEncoded
@@ -750,29 +752,29 @@ interface ApiService {
     @FormUrlEncoded
     @POST("sendInvoice")
     fun sendInvoice(
-        @Field("chat_id") chatId: Long,
-        @Field("title") title: String,
-        @Field("description") description: String,
-        @Field("payload") payload: String,
-        @Field("provider_token") providerToken: String,
-        @Field("start_parameter") startParameter: String,
-        @Field("currency") currency: String,
-        @Field("prices") prices: LabeledPriceList,
-        @Field("provider_data") providerData: String?,
-        @Field("photo_url") photoUrl: String?,
-        @Field("photo_size") photoSize: Int?,
-        @Field("photo_width") photoWidth: Int?,
-        @Field("photo_height") photoHeight: Int?,
-        @Field("need_name") needName: Boolean?,
-        @Field("need_phone_number") needPhoneNumber: Boolean?,
-        @Field("need_email") needEmail: Boolean?,
-        @Field("need_shipping_address") needShippingAddress: Boolean?,
-        @Field("send_phone_number_to_provider") sendPhoneNumberToProvider: Boolean?,
-        @Field("send_email_to_provider") sendEmailToProvider: Boolean?,
-        @Field("is_flexible") isFlexible: Boolean?,
-        @Field("disable_notification") disableNotification: Boolean?,
-        @Field("reply_to_message_id") replyToMessageId: Long?,
-        @Field("reply_markup") replyMarkup: ReplyMarkup? = null
+            @Field("chat_id") chatId: Long,
+            @Field("title") title: String,
+            @Field("description") description: String,
+            @Field("payload") payload: String,
+            @Field("provider_token") providerToken: String,
+            @Field("start_parameter") startParameter: String,
+            @Field("currency") currency: String,
+            @Field("prices") prices: LabeledPriceList,
+            @Field("provider_data") providerData: String?,
+            @Field("photo_url") photoUrl: String?,
+            @Field("photo_size") photoSize: Int?,
+            @Field("photo_width") photoWidth: Int?,
+            @Field("photo_height") photoHeight: Int?,
+            @Field("need_name") needName: Boolean?,
+            @Field("need_phone_number") needPhoneNumber: Boolean?,
+            @Field("need_email") needEmail: Boolean?,
+            @Field("need_shipping_address") needShippingAddress: Boolean?,
+            @Field("send_phone_number_to_provider") sendPhoneNumberToProvider: Boolean?,
+            @Field("send_email_to_provider") sendEmailToProvider: Boolean?,
+            @Field("is_flexible") isFlexible: Boolean?,
+            @Field("disable_notification") disableNotification: Boolean?,
+            @Field("reply_to_message_id") replyToMessageId: Long?,
+            @Field("reply_markup") replyMarkup: ReplyMarkup? = null
     ): Call<Response<Message>>
 
     @FormUrlEncoded
@@ -816,37 +818,37 @@ interface ApiService {
     @FormUrlEncoded
     @POST(DiceFields.SEND_DICE_OP_NAME)
     fun sendDice(
-        @Field(ApiConstants.CHAT_ID) chatId: Long,
-        @Field(DiceFields.EMOJI) emoji: DiceEmoji? = null,
-        @Field(ApiConstants.DISABLE_NOTIFICATION) disableNotification: Boolean? = null,
-        @Field(ApiConstants.REPLY_TO_MESSAGE_ID) replyToMessageId: Long? = null,
-        @Field(ApiConstants.REPLY_MARKUP) replyMarkup: ReplyMarkup? = null
+            @Field(ApiConstants.CHAT_ID) chatId: Long,
+            @Field(DiceFields.EMOJI) emoji: DiceEmoji? = null,
+            @Field(ApiConstants.DISABLE_NOTIFICATION) disableNotification: Boolean? = null,
+            @Field(ApiConstants.REPLY_TO_MESSAGE_ID) replyToMessageId: Long? = null,
+            @Field(ApiConstants.REPLY_MARKUP) replyMarkup: ReplyMarkup? = null
     ): Call<Response<Message>>
 
     @FormUrlEncoded
     @POST(DiceFields.SEND_DICE_OP_NAME)
     fun sendDice(
-        @Field(ApiConstants.CHAT_ID) channelUsername: String,
-        @Field(DiceFields.EMOJI) emoji: DiceEmoji? = null,
-        @Field(ApiConstants.DISABLE_NOTIFICATION) disableNotification: Boolean? = null,
-        @Field(ApiConstants.REPLY_TO_MESSAGE_ID) replyToMessageId: Long? = null,
-        @Field(ApiConstants.REPLY_MARKUP) replyMarkup: ReplyMarkup? = null
+            @Field(ApiConstants.CHAT_ID) channelUsername: String,
+            @Field(DiceFields.EMOJI) emoji: DiceEmoji? = null,
+            @Field(ApiConstants.DISABLE_NOTIFICATION) disableNotification: Boolean? = null,
+            @Field(ApiConstants.REPLY_TO_MESSAGE_ID) replyToMessageId: Long? = null,
+            @Field(ApiConstants.REPLY_MARKUP) replyMarkup: ReplyMarkup? = null
     ): Call<Response<Message>>
 
     @FormUrlEncoded
     @POST(ApiConstants.SetChatAdministratorCustomTitle.OP_NAME)
     fun setChatAdministratorCustomTitle(
-        @Field(ApiConstants.CHAT_ID) chatId: Long,
-        @Field(ApiConstants.USER_ID) userId: Long,
-        @Field(ApiConstants.SetChatAdministratorCustomTitle.CUSTOM_TITLE) customTitle: String
+            @Field(ApiConstants.CHAT_ID) chatId: Long,
+            @Field(ApiConstants.USER_ID) userId: Long,
+            @Field(ApiConstants.SetChatAdministratorCustomTitle.CUSTOM_TITLE) customTitle: String
     ): Call<Response<Boolean>>
 
     @FormUrlEncoded
     @POST(ApiConstants.SetChatAdministratorCustomTitle.OP_NAME)
     fun setChatAdministratorCustomTitle(
-        @Field(ApiConstants.CHAT_ID) channelUsername: String,
-        @Field(ApiConstants.USER_ID) userId: Long,
-        @Field(ApiConstants.SetChatAdministratorCustomTitle.CUSTOM_TITLE) customTitle: String
+            @Field(ApiConstants.CHAT_ID) channelUsername: String,
+            @Field(ApiConstants.USER_ID) userId: Long,
+            @Field(ApiConstants.SetChatAdministratorCustomTitle.CUSTOM_TITLE) customTitle: String
     ): Call<Response<Boolean>>
 }
 

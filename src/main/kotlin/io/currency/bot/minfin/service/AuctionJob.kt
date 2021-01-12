@@ -56,8 +56,7 @@ class AuctionJob(
 
             tgUser.diff = diff
             userService.updateUser(tgUser)
-
-            telegramClient.sendMessage(telegramProperties.channel.toLong(), text)
+            telegramClient.sendMessage(tgUser.id, text)
         }
     }
 }

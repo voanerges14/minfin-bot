@@ -16,5 +16,7 @@ data class TelegramUser(
         var delta: Double? = null,
         var diff: Double? = null,
 
+        var city: String? = null,
+
         val createdAt: LocalDateTime = LocalDateTime.now()
 )

@@ -4,6 +4,7 @@ import io.currency.bot.minfin.model.TelegramUser
 import io.currency.bot.minfin.repository.UserRepository
 import io.currency.bot.minfin.telegram.entities.User
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class UserService(
@@ -24,5 +25,9 @@ class UserService(
 
     fun getAllUsers(): MutableList<TelegramUser> {
         return userRepository.findAll()
+    }
+
+    fun getUser(id: Long): TelegramUser {
+        return userRepository.findById(id).orElse(TelegramUser())
     }
 }

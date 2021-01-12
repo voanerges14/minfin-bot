@@ -19,6 +19,8 @@ class TelegramWebhookService(
         const val SET_RATE_COMMAND = "/rate"
         const val CITY_COMMAND = "/city"
         const val DELTA_COMMAND = "/delta"
+        const val IAM_COMMAND = "/iam"
+        const val HELP_COMMAND = "/help"
     }
 
     fun onUpdate(update: Update) {
@@ -31,6 +33,8 @@ class TelegramWebhookService(
             when {
                 text?.startsWith(START_COMMAND) == true -> onStartCommand(chatId)
                 text?.startsWith(ECHO_COMMAND) == true -> onEchoCommand(chatId, text)
+                text?.startsWith(IAM_COMMAND) == true -> onIamCommand(chatId, text)
+                text?.startsWith(HELP_COMMAND) == true -> onHelpCommand(chatId, text)
 
                 text?.startsWith(SET_RATE_COMMAND) == true -> onSetRateCommand(tgUser, text)
                 text?.startsWith(CITY_COMMAND) == true -> onCityCommand(tgUser, text)
@@ -45,6 +49,16 @@ class TelegramWebhookService(
 
     private fun onEchoCommand(chatId: Long, text: String) {
         telegramClient.sendMessage(chatId, prepareText(text, ECHO_COMMAND))
+    }
+
+    private fun onHelpCommand(chatId: Long, text: String) {
+        val text = "/start \n /echo \n /iam \n /delta \n /city \n /rate \n /help"
+        telegramClient.sendMessage(chatId, text)
+    }
+
+    private fun onIamCommand(chatId: Long, text: String) {
+        val text = userService.getUser(chatId).toString()
+        telegramClient.sendMessage(chatId, text)
     }
 
     private fun onCityCommand(tgUser: TelegramUser, text: String) {

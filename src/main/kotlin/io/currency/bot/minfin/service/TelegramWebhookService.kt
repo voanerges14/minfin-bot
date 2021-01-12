@@ -18,6 +18,7 @@ class TelegramWebhookService(
         const val ECHO_COMMAND = "/echo"
         const val SET_RATE_COMMAND = "/rate"
         const val CITY_COMMAND = "/city"
+        const val DELTA_COMMAND = "/delta"
     }
 
     fun onUpdate(update: Update) {
@@ -33,6 +34,7 @@ class TelegramWebhookService(
 
                 text?.startsWith(SET_RATE_COMMAND) == true -> onSetRateCommand(tgUser, text)
                 text?.startsWith(CITY_COMMAND) == true -> onCityCommand(tgUser, text)
+                text?.startsWith(DELTA_COMMAND) == true -> onDeltaCommand(tgUser, text)
             }
         }
     }
@@ -52,11 +54,16 @@ class TelegramWebhookService(
     }
 
     private fun onSetRateCommand(tgUser: TelegramUser, text: String) {
-        val rate = text
-                .subSequence(SET_RATE_COMMAND.length, text.length).toString()
+        tgUser.baseRate = prepareText(text, SET_RATE_COMMAND)
                 .replace("\uFEFF", "")
                 .toDoubleOrNull()
-        tgUser.baseRate = rate
+        auction.executeCheck(userService.updateUser(tgUser))
+    }
+
+    private fun onDeltaCommand(tgUser: TelegramUser, text: String) {
+        tgUser.delta = prepareText(text, DELTA_COMMAND)
+                .replace("\uFEFF", "")
+                .toDoubleOrNull()
         auction.executeCheck(userService.updateUser(tgUser))
     }
 

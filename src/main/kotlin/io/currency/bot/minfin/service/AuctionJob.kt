@@ -2,7 +2,6 @@ package io.currency.bot.minfin.service
 
 import io.currency.bot.minfin.client.TelegramClient
 import io.currency.bot.minfin.config.AuctionProperties
-import io.currency.bot.minfin.config.TelegramProperties
 import io.currency.bot.minfin.model.Rate
 import io.currency.bot.minfin.model.TelegramUser
 import org.springframework.scheduling.annotation.Scheduled
@@ -16,7 +15,6 @@ class AuctionJob(
         private val auctionService: AuctionService,
         private val userService: UserService,
         private val auctionProperties: AuctionProperties,
-        private val telegramProperties: TelegramProperties,
         private val telegramClient: TelegramClient) {
 
     private val logger: Logger = Logger.getLogger("[MinFin-Bot]")

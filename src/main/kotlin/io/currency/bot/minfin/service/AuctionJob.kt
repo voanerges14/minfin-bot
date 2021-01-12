@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
 import java.util.logging.Logger
 import kotlin.math.abs
+import kotlin.math.roundToInt
 
 @Service
 class AuctionJob(
@@ -47,7 +48,7 @@ class AuctionJob(
         val userRate = tgUser.baseRate ?: lowestRate
         val delta = tgUser.delta ?: auctionProperties.rateDelta
 
-        val diff = minfinRate - userRate
+        val diff = ((minfinRate - userRate) * 100.0).roundToInt() / 100.0
         val lastDiff = tgUser.diff ?: 0
 
         if (lastDiff != diff && abs(diff) >= delta) {

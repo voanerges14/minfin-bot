@@ -43,7 +43,7 @@ class AuctionJob(
     fun executeCheck(tgUser: TelegramUser) {
         val actualRate = auctionService.getCurrentAverageRate(tgUser.currency, tgUser.city)
         val lowestRate = auctionService.getDayLowestAverageRate() ?: auctionService.updateRate(actualRate, Rate())
-
+        logger.info("User id: ${tgUser.id}. user rate: ${tgUser.baseRate}. user currency: ${tgUser.currency}. actual rate: $actualRate")
         doUpdateAndNotify(actualRate.avg, lowestRate.avg, tgUser)
     }
 

@@ -17,7 +17,7 @@ import java.time.LocalTime
 class MinfinAuctionParser(private val props: MinfinProperties) {
     fun getCurrencyAuction(): List<Currency> {
         return skrape {
-            url = props.url
+            url = props.default.preparedUrl
             extract {
                 htmlDocument {
                     button {

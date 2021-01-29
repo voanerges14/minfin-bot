@@ -1,5 +1,6 @@
 package io.currency.bot.minfin.service
 
+import io.currency.bot.minfin.config.MinfinProperties
 import io.currency.bot.minfin.model.Rate
 import io.currency.bot.minfin.repository.AuctionRepository
 import io.currency.bot.minfin.repository.RateRepository
@@ -8,9 +9,10 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 class AuctionService(
-        private val currency: MinfinAuctionParser,
+        private val currencyParser: MinfinAuctionParser,
         private val repository: AuctionRepository,
-        private val rateRepository: RateRepository
+        private val rateRepository: RateRepository,
+        private val minfinProperties: MinfinProperties
 ) {
 
     fun getRateDelta(): Double {
@@ -18,7 +20,14 @@ class AuctionService(
     }
 
     fun getCurrentAverageRate(): Rate {
-        return Rate(avg = currency.getCurrencyAuction().map { c -> c.rate }.average())
+        return getCurrentAverageRate(null, null)
+    }
+
+    fun getCurrentAverageRate(currency: String?, city: String?): Rate {
+        minfinProperties.default.currency = currency?:  minfinProperties.default.currency
+        minfinProperties.default.city = city?: minfinProperties.default.city
+
+        return Rate(avg = currencyParser.getCurrencyAuction().map { c -> c.rate }.average())
     }
 
     fun getPreviousAverageRate(): Rate? {

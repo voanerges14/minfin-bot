@@ -1,5 +1,7 @@
 package io.currency.bot.minfin.model
 
+import io.currency.bot.minfin.service.MinfinAuctionParser
+import org.springframework.beans.factory.annotation.Autowired
 import java.time.LocalDateTime
 import javax.persistence.Entity
 import javax.persistence.Id
@@ -17,6 +19,7 @@ data class TelegramUser(
         var diff: Double? = null,
 
         var city: String? = null,
+        val currency: String? = "usd",
 
         val createdAt: LocalDateTime = LocalDateTime.now()
 )

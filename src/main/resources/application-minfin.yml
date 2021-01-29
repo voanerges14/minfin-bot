@@ -5,10 +5,11 @@ telegram:
   url: ${telegram.host}${telegram.apiKey}/sendMessage?chat_id=${telegram.channel}&text=
 
 minfin:
-  currency: usd
-  city: lvov
-  url: https://minfin.com.ua/ua/currency/auction/${minfin.currency}/sell/${minfin.city}/?order=newest
-
+  default:
+    currency: usd
+    city: lvov
+    url: https://minfin.com.ua
+  currencies: usd,eur
 auction:
   scheduler:
     delay: 20000

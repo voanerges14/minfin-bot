@@ -45,10 +45,13 @@ dependencies {
 	implementation("khttp:khttp:1.0.0")
 
 	implementation("it.skrape:skrapeit-core:1.0.0-alpha6")
+    implementation("org.junit.jupiter:junit-jupiter:5.4.2")
 
-	compileOnly("org.projectlombok:lombok")
+    compileOnly("org.projectlombok:lombok")
 	annotationProcessor ("org.springframework.boot:spring-boot-configuration-processor")
 
+	// https://mvnrepository.com/artifact/com.h2database/h2
+	testImplementation("com.h2database:h2:1.3.148")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 }

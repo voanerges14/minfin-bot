@@ -2,12 +2,12 @@ telegram:
   apiKey: 123
   channel: 123
   url: https://api.telegram.org/bot${telegram.apiKey}/sendMessage?chat_id=${telegram.channel}&text=
-
 minfin:
-  currency: usd
-  city: lvov
-  url: https://minfin.com.ua/ua/currency/auction/${minfin.currency}/sell/${minfin.city}/?order=newest
-
+  default:
+    currency: usd
+    city: lvov
+    url: https://minfin.com.ua
+  currencies: usd,eur
 auction:
   scheduler:
     delay: 20000

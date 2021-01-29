@@ -2,7 +2,6 @@ package io.currency.bot.minfin.service
 
 import io.currency.bot.minfin.client.TelegramClient
 import io.currency.bot.minfin.model.TelegramUser
-import io.currency.bot.minfin.telegram.entities.Message
 import io.currency.bot.minfin.telegram.entities.Update
 import org.springframework.stereotype.Service
 

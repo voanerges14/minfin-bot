@@ -4,7 +4,6 @@ import io.currency.bot.minfin.model.TelegramUser
 import io.currency.bot.minfin.repository.UserRepository
 import io.currency.bot.minfin.telegram.entities.User
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class UserService(
@@ -12,11 +11,12 @@ class UserService(
 ) {
 
     fun getOrRegisterUser(user: User): TelegramUser {
-        return userRepository.findById(user.id)
-                .orElse(userRepository.save(TelegramUser(
-                        id = user.id,
-                        firstName = user.firstName,
-                        username = user.username)))
+        val tgUser = userRepository.findById(user.id)
+        return if (tgUser.isPresent) tgUser.get() else
+            userRepository.save(TelegramUser(
+                    id = user.id,
+                    firstName = user.firstName,
+                    username = user.username))
     }
 
     fun updateUser(tgUser: TelegramUser): TelegramUser {

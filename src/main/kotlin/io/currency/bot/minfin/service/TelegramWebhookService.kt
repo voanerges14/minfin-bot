@@ -15,8 +15,11 @@ class TelegramWebhookService(
     companion object {
         const val START_COMMAND = "/start"
         const val ECHO_COMMAND = "/echo"
+
         const val SET_RATE_COMMAND = "/rate"
         const val CITY_COMMAND = "/city"
+        const val CURRENCY_COMMAND = "/currency"
+
         const val DELTA_COMMAND = "/delta"
         const val IAM_COMMAND = "/iam"
         const val HELP_COMMAND = "/help"
@@ -38,6 +41,7 @@ class TelegramWebhookService(
                 text?.startsWith(SET_RATE_COMMAND) == true -> onSetRateCommand(tgUser, text)
                 text?.startsWith(CITY_COMMAND) == true -> onCityCommand(tgUser, text)
                 text?.startsWith(DELTA_COMMAND) == true -> onDeltaCommand(tgUser, text)
+                text?.startsWith(CURRENCY_COMMAND) == true -> onCurrencyCommand(tgUser, text)
             }
         }
     }
@@ -51,7 +55,7 @@ class TelegramWebhookService(
     }
 
     private fun onHelpCommand(chatId: Long, text: String) {
-        val text = "/start \n /echo \n /iam \n /delta \n /city \n /rate \n /help"
+        val text = "/start \n /echo \n /iam \n /delta \n /city \n /rate \n /help \n /currency"
         telegramClient.sendMessage(chatId, text)
     }
 
@@ -78,6 +82,14 @@ class TelegramWebhookService(
                 .replace("\uFEFF", "")
                 .toDoubleOrNull()
         auction.executeCheck(userService.updateUser(tgUser))
+    }
+
+    private fun onCurrencyCommand(tgUser: TelegramUser, text: String) {
+        tgUser.currency = prepareText(text, CURRENCY_COMMAND)
+                .replace("\uFEFF", "")
+        tgUser.baseRate = 0.0
+        userService.updateUser(tgUser)
+        telegramClient.sendMessage(tgUser.id, "Please update base rate!")
     }
 
     private fun prepareText(text: String, command: String): String {

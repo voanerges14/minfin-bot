@@ -19,7 +19,7 @@ data class TelegramUser(
         var diff: Double? = null,
 
         var city: String? = null,
-        val currency: String? = "usd",
+        var currency: String? = "usd",
 
         val createdAt: LocalDateTime = LocalDateTime.now()
 )
